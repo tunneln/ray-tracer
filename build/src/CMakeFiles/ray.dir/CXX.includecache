@@ -1,0 +1,666 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/RayTracer.cpp
+RayTracer.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/RayTracer.h
+scene/light.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/light.h
+scene/material.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/material.h
+scene/ray.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/ray.h
+parser/Tokenizer.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Tokenizer.h
+parser/Parser.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Parser.h
+ui/TraceUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/TraceUI.h
+cmath
+-
+algorithm
+-
+glm/glm.hpp
+-
+string.h
+-
+iostream
+-
+fstream
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/RayTracer.h
+scene/ray.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/ray.h
+scene/cubeMap.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/cubeMap.h
+time.h
+-
+thread
+-
+queue
+-
+glm/vec3.hpp
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Box.cpp
+cmath
+-
+assert.h
+-
+algorithm
+-
+Box.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Box.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Box.h
+../scene/scene.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/scene.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Cone.cpp
+cmath
+-
+Cone.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Cone.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Cone.h
+../scene/scene.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/scene.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Cylinder.cpp
+cmath
+-
+Cylinder.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Cylinder.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Cylinder.h
+../scene/scene.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/scene.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Sphere.cpp
+cmath
+-
+Sphere.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Sphere.h
+iostream
+-
+glm/gtx/io.hpp
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Sphere.h
+../scene/scene.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/scene.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Square.cpp
+cmath
+-
+Square.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Square.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Square.h
+../scene/scene.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/scene.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/trimesh.cpp
+cmath
+-
+float.h
+-
+algorithm
+-
+assert.h
+-
+string.h
+-
+trimesh.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/trimesh.h
+../ui/TraceUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/TraceUI.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/trimesh.h
+list
+-
+vector
+-
+../scene/ray.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/ray.h
+../scene/material.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/material.h
+../scene/scene.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/scene.h
+../scene/kdTree.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/kdTree.h
+glm/vec3.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/bitmap.cpp
+bitmap.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/bitmap.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/bitmap.h
+stdio.h
+-
+string.h
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/buffer.cpp
+string
+-
+buffer.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/buffer.h
+../parser/Parser.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Parser.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/buffer.h
+iostream
+-
+string
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/pngimage.cpp
+pngimage.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/pngimage.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/pngimage.h
+stdio.h
+-
+stdlib.h
+-
+zlib.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/zlib.h
+png.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/png.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/main.cpp
+ui/GraphicalUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/GraphicalUI.h
+RayTracer.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/RayTracer.h
+ui/CommandLineUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/CommandLineUI.h
+fileio/bitmap.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/bitmap.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Parser.cpp
+iostream
+-
+fstream
+-
+sstream
+-
+memory
+-
+Parser.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Parser.h
+Tokenizer.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Tokenizer.h
+../scene/scene.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/scene.h
+../scene/material.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/material.h
+../ui/TraceUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/TraceUI.h
+glm/mat4x4.hpp
+-
+glm/glm.hpp
+-
+glm/gtx/transform.hpp
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Parser.h
+string
+-
+map
+-
+ParserException.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/ParserException.h
+Tokenizer.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Tokenizer.h
+../scene/scene.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/scene.h
+../scene/light.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/light.h
+../SceneObjects/Box.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Box.h
+../SceneObjects/Cone.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Cone.h
+../SceneObjects/Cylinder.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Cylinder.h
+../SceneObjects/Sphere.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Sphere.h
+../SceneObjects/Square.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Square.h
+../SceneObjects/trimesh.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/trimesh.h
+glm/vec3.hpp
+-
+glm/vec4.hpp
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/ParserException.cpp
+iostream
+-
+sstream
+-
+ParserException.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/ParserException.h
+Tokenizer.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Tokenizer.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/ParserException.h
+string
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Token.cpp
+stdio.h
+-
+Token.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Token.h
+map
+-
+sstream
+-
+iostream
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Token.h
+string
+-
+iostream
+-
+map
+-
+ParserException.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/ParserException.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Tokenizer.cpp
+string
+-
+map
+-
+sstream
+-
+stdlib.h
+-
+../fileio/buffer.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/buffer.h
+Tokenizer.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Tokenizer.h
+Token.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Token.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Tokenizer.h
+Token.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/parser/Token.h
+../fileio/buffer.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/buffer.h
+string
+-
+memory
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/bbox.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/camera.cpp
+camera.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/camera.h
+../ui/TraceUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/TraceUI.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/camera.h
+ray.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/ray.h
+glm/vec3.hpp
+-
+glm/mat3x3.hpp
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/cubeMap.cpp
+cubeMap.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/cubeMap.h
+ray.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/ray.h
+../ui/TraceUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/TraceUI.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/cubeMap.h
+../scene/material.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/material.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/kdTree.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/light.cpp
+cmath
+-
+light.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/light.h
+glm/glm.hpp
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/light.h
+algorithm
+-
+scene.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/scene.h
+../ui/TraceUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/TraceUI.h
+FL/gl.h
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/material.cpp
+material.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/material.h
+ray.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/ray.h
+light.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/light.h
+../ui/TraceUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/TraceUI.h
+../fileio/bitmap.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/bitmap.h
+../fileio/pngimage.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/pngimage.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/material.h
+glm/vec2.hpp
+-
+glm/vec3.hpp
+-
+glm/glm.hpp
+-
+string
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/ray.cpp
+ray.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/ray.h
+material.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/material.h
+scene.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/scene.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/ray.h
+glm/vec3.hpp
+-
+glm/vec2.hpp
+-
+material.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/material.h
+../ui/TraceUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/TraceUI.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/scene.cpp
+cmath
+-
+scene.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/scene.h
+light.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/light.h
+kdTree.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/kdTree.h
+../ui/TraceUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/TraceUI.h
+glm/gtx/extented_min_max.hpp
+-
+iostream
+-
+glm/gtx/io.hpp
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/scene.h
+vector
+-
+algorithm
+-
+map
+-
+string
+-
+memory
+-
+ray.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/ray.h
+material.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/material.h
+camera.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/camera.h
+bbox.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/bbox.h
+glm/vec3.hpp
+-
+glm/vec4.hpp
+-
+glm/mat4x4.hpp
+-
+glm/mat3x3.hpp
+-
+glm/geometric.hpp
+-
+glm/matrix.hpp
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/CommandLineUI.cpp
+iostream
+-
+time.h
+-
+stdarg.h
+-
+unistd.h
+-
+assert.h
+-
+CommandLineUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/CommandLineUI.h
+../fileio/bitmap.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/bitmap.h
+../RayTracer.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/RayTracer.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/CommandLineUI.h
+TraceUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/TraceUI.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/CubeMapChooser.cxx
+CubeMapChooser.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/CubeMapChooser.h
+../scene/cubeMap.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/cubeMap.h
+../scene/material.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/material.h
+../ui/GraphicalUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/GraphicalUI.h
+iostream
+-
+direct.h
+-
+unistd.h
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/CubeMapChooser.h
+FL/Fl.H
+-
+FL/Fl_Menu_Window.H
+-
+FL/Fl_Group.H
+-
+FL/Fl_File_Input.H
+-
+FL/Fl_Light_Button.H
+-
+FL/Fl_Button.H
+-
+FL/Fl_File_Chooser.H
+-
+string
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/GraphicalUI.cpp
+stdio.h
+-
+time.h
+-
+string.h
+-
+stdarg.h
+-
+chrono
+-
+algorithm
+-
+FL/fl_ask.H
+-
+debuggingView.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/debuggingView.h
+GraphicalUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/GraphicalUI.h
+../RayTracer.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/RayTracer.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/GraphicalUI.h
+FL/Fl.H
+-
+FL/Fl_Window.H
+-
+FL/Fl_Menu_Bar.H
+-
+FL/Fl_Value_Slider.H
+-
+FL/Fl_Check_Button.H
+-
+FL/Fl_Button.H
+-
+FL/Fl_File_Chooser.H
+-
+TraceUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/TraceUI.h
+TraceGLWindow.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/TraceGLWindow.h
+debuggingWindow.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/debuggingWindow.h
+CubeMapChooser.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/CubeMapChooser.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/ModelerCamera.cpp
+windows.h
+-
+glm/mat4x4.hpp
+-
+glm/gtx/transform.hpp
+-
+FL/gl.h
+-
+FL/glu.h
+-
+ModelerCamera.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/ModelerCamera.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/ModelerCamera.h
+glm/vec3.hpp
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/TraceGLWindow.cpp
+iostream
+-
+TraceGLWindow.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/TraceGLWindow.h
+../RayTracer.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/RayTracer.h
+GraphicalUI.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/GraphicalUI.h
+../fileio/bitmap.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/fileio/bitmap.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/TraceGLWindow.h
+FL/Fl.H
+-
+FL/Fl_Gl_Window.H
+-
+FL/gl.h
+-
+FL/glu.h
+-
+../RayTracer.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/RayTracer.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/TraceUI.h
+string
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/debuggingView.cpp
+debuggingView.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/debuggingView.h
+ModelerCamera.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/ModelerCamera.h
+../RayTracer.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/RayTracer.h
+../scene/scene.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/scene.h
+../scene/light.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/light.h
+string.h
+-
+iostream
+-
+FL/Fl.H
+-
+FL/Fl_Gl_Window.H
+-
+FL/gl.h
+-
+FL/glu.h
+-
+cstdio
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/debuggingView.h
+FL/Fl_Gl_Window.H
+-
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/debuggingWindow.cxx
+debuggingWindow.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/debuggingWindow.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/debuggingWindow.h
+FL/Fl.H
+-
+FL/Fl_Window.H
+-
+FL/Fl_Menu_Bar.H
+-
+debuggingView.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/debuggingView.h
+
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/ui/glObjects.cpp
+FL/gl.h
+-
+FL/glu.h
+-
+math.h
+-
+../scene/scene.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/scene.h
+../scene/ray.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/ray.h
+../scene/light.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/scene/light.h
+../SceneObjects/Box.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Box.h
+../SceneObjects/Cone.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Cone.h
+../SceneObjects/Cylinder.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Cylinder.h
+../SceneObjects/Sphere.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Sphere.h
+../SceneObjects/Square.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/Square.h
+../SceneObjects/trimesh.h
+/home/noel/Dropbox/Computer Science/CS354/RayTracer/ray/src/SceneObjects/trimesh.h
+
