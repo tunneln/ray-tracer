@@ -72,28 +72,46 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 	glm::dvec3 colorC;
 
 	if(scene->intersect(r, i)) {
-		// YOUR CODE HERE
-
-		// An intersection occurred!  We've got work to do.  For now,
-		// this code gets the material for the surface that was intersected,
-		// and asks that material to provide a color for the ray.  
-
-		// This is a great place to insert code for recursive ray tracing.
-		// Instead of just returning the result of shade(), add some
-		// more steps: add in the contributions from reflected and refracted
-		// rays.
-
+		glm::dvec3 reflectedColor(0.0, 0.0, 0.0);
+		glm::dvec3 refractedColor(0.0, 0.0, 0.0);
 		const Material& m = i.getMaterial();
-		colorC = m.shade(scene, r, i);
-	} else {
-		// No intersection.  This ray travels to infinity, so we color
-		// it according to the background color, which in this (simple) case
-		// is just black.
-		// 
-		// FIXME: Add CubeMap support here.
+		double c = 0.000001;
+	
+		if (depth > 0) {
+			glm::dvec3 n = i.N;
+			glm::dvec3 dir = -r.getDirection();
+			double d = glm::dot(n, dir);
+			double n0 = (d < 0) ? i.getMaterial().index(i) : 1;
+			double n1 = (d < 0) ? 1 : i.getMaterial().index(i);
+			double r_c = n0 / n1;
+			double rad = 1 - r_c * r_c * (1 - d * d);
 
-		colorC = glm::dvec3(0.0, 0.0, 0.0);
-	}
+			if (m.Refl()) {
+				glm::dvec3 ref = glm::normalize(r.getDirection() - 
+									2.0 * i.N * glm::dot(i.N, r.getDirection()));
+				ray refl_ray(r.getPosition() + ref * c + i.t * r.getDirection(), ref, 
+									r.getPixel(), r.ctr, r.getAtten(), ray::REFLECTION);
+
+				reflectedColor = traceRay(refl_ray, thresh, depth - 1, t);
+			}
+			
+			
+            if (m.Trans() && rad >= 0) {
+                glm::dvec3 _N = (c < 0) ? -n : n;
+
+                glm::dvec3 T = glm::normalize(-(r_c * d + sqrt(rad) * _N));
+                ray refr_ray(r.getPosition() + (i.t + c) * r.getDirection(), T, 
+									r.getPixel(), r.ctr, r.getAtten(), ray::REFRACTION);
+                refractedColor = traceRay(refr_ray, thresh, depth - 1, t);
+			}
+			
+		}
+		
+		colorC = m.shade(scene, r, i) + m.kr(i) * reflectedColor + m.kt(i) * refractedColor;
+
+	} else  // FIXME: Add CubeMap support here.
+		colorC = (haveCubeMap()) ? getCubeMap()->getColor(r) : glm::dvec3(0.0, 0.0, 0.0);
+
 	return colorC;
 }
 
