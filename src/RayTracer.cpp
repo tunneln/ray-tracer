@@ -95,15 +95,14 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 
 				reflectedColor = traceRay(reflRay, thresh, depth - 1, t);
 			}
-			
-			
-            if (m.Trans() && rad >= 0) {
-                glm::dvec3 _N = (c < 0) ? -n : n;
+				
+			if (m.Trans() && rad >= 0) {
+				glm::dvec3 _N = (c < 0) ? -n : n;
 
-                glm::dvec3 T = glm::normalize(-(r_c * d + sqrt(rad) * _N));
-                ray refrRay(r.getPosition() + (i.t + c) * r.getDirection(), T, 
+				glm::dvec3 T = glm::normalize(-(r_c * d + sqrt(rad) * _N));
+				ray refrRay(r.getPosition() + (i.t + c) * r.getDirection(), T, 
 									r.getPixel(), r.ctr, r.getAtten(), ray::REFRACTION);
-                refractedColor = traceRay(refrRay, thresh, depth - 1, t);
+				refractedColor = traceRay(refrRay, thresh, depth - 1, t);
 			}
 			
 		}
