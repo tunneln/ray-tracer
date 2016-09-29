@@ -5,6 +5,7 @@
 #include <string.h>
 #include "trimesh.h"
 #include "../ui/TraceUI.h"
+
 extern TraceUI* traceUI;
 
 using namespace std;
@@ -81,7 +82,7 @@ bool Trimesh::intersectLocal(ray& r, isect& i) const
 } 
 
 bool TrimeshFace::intersect(ray& r, isect& i) const {
-  return intersectLocal(r, i);
+	return intersectLocal(r, i);
 }
 
 // Intersect ray r with the triangle abc.  If it hits returns true,
@@ -89,11 +90,33 @@ bool TrimeshFace::intersect(ray& r, isect& i) const {
 // intersection in u (alpha) and v (beta).
 bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 {
-    // YOUR CODE HERE
-    // 
-    // FIXME: Add ray-trimesh intersection
+	glm::dvec3 a = parent->vertices[ids[0]];
+    glm::dvec3 b = parent->vertices[ids[1]];
+    glm::dvec3 c = parent->vertices[ids[2]];
 
-    return false;
+    if (glm::dot(normal, r.d) == 0)
+        return false;
+
+    double t = (dist - glm::dot(normal, r.p)) / glm::dot(normal, r.d);
+	glm::dvec3 p = r.p + t * r.d; // = p(i.t)
+
+    bool is_intersect = t >= 0.00001 && glm::dot(glm::cross(b-a, p-a), normal) >= 0 &&
+		glm::dot(glm::cross(c-b, p-b), normal) >= 0 && 
+		glm::dot(glm::cross(a-c, p-c), normal) >= 0;
+
+    if(is_intersect) {
+        double det = glm::dot(a, glm::cross(b, c));
+        double A = glm::dot(p, glm::cross(b, c)) / det;
+        double B = glm::dot(a, glm::cross(p, c)) / det;
+        double C = glm::dot(a, glm::cross(b, p)) / det;
+
+        i.setBary(A, B, C);
+        i.setT(t);
+        i.setN(normal);
+        i.setMaterial(*material);
+    }
+
+	return is_intersect;
 }
 
 void Trimesh::generateNormals()
