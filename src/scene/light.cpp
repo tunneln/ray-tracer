@@ -15,8 +15,12 @@ double DirectionalLight::distanceAttenuation(const glm::dvec3& P) const
 
 glm::dvec3 DirectionalLight::shadowAttenuation(const ray& r, const glm::dvec3& p) const
 {
-	// YOUR CODE HERE:
-	// You should implement shadow-handling code here.
+	ray l_r = r;
+    isect i;
+
+    if (scene->intersect(l_r, i)) 
+        return glm::dvec3(0.0, 0.0, 0.0);
+
 	return glm::dvec3(1.0, 1.0, 1.0);
 }
 
@@ -51,11 +55,14 @@ glm::dvec3 PointLight::getDirection(const glm::dvec3& P) const
 	return glm::normalize(position - P);
 }
 
-
 glm::dvec3 PointLight::shadowAttenuation(const ray& r, const glm::dvec3& p) const
 {
-	// YOUR CODE HERE:
-	// You should implement shadow-handling code here.
-	return glm::dvec3(1,1,1);
+	ray l_r = r;
+    isect i;
+
+    if (scene->intersect(l_r, i) && i.t < glm::length(this->position - p))
+        return glm::dvec3(0.0, 0.0, 0.0);
+
+	return glm::dvec3(1.0, 1.0, 1.0);
 }
 
