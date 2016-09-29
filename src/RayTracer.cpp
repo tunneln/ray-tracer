@@ -14,12 +14,13 @@
 #include <cmath>
 #include <algorithm>
 #include <glm/glm.hpp>
-#include <string.h> // for memset
+#include <cstring>
 
 #include <iostream>
 #include <fstream>
 
 using namespace std;
+
 extern TraceUI* traceUI;
 
 // Use this variable to decide if you want to print out
@@ -89,10 +90,10 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 			if (m.Refl()) {
 				glm::dvec3 ref = glm::normalize(r.getDirection() - 
 									2.0 * i.N * glm::dot(i.N, r.getDirection()));
-				ray refl_ray(r.getPosition() + ref * c + i.t * r.getDirection(), ref, 
+				ray reflRay(r.getPosition() + ref * c + i.t * r.getDirection(), ref, 
 									r.getPixel(), r.ctr, r.getAtten(), ray::REFLECTION);
 
-				reflectedColor = traceRay(refl_ray, thresh, depth - 1, t);
+				reflectedColor = traceRay(reflRay, thresh, depth - 1, t);
 			}
 			
 			
@@ -100,9 +101,9 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
                 glm::dvec3 _N = (c < 0) ? -n : n;
 
                 glm::dvec3 T = glm::normalize(-(r_c * d + sqrt(rad) * _N));
-                ray refr_ray(r.getPosition() + (i.t + c) * r.getDirection(), T, 
+                ray refrRay(r.getPosition() + (i.t + c) * r.getDirection(), T, 
 									r.getPixel(), r.ctr, r.getAtten(), ray::REFRACTION);
-                refractedColor = traceRay(refr_ray, thresh, depth - 1, t);
+                refractedColor = traceRay(refrRay, thresh, depth - 1, t);
 			}
 			
 		}
@@ -184,8 +185,7 @@ bool RayTracer::loadScene( char* fn ) {
 
 void RayTracer::traceSetup(int w, int h)
 {
-	if (buffer_width != w || buffer_height != h)
-	{
+	if (buffer_width != w || buffer_height != h) {
 		buffer_width = w;
 		buffer_height = h;
 		bufferSize = buffer_width * buffer_height * 3;
@@ -196,16 +196,56 @@ void RayTracer::traceSetup(int w, int h)
 	m_bBufferReady = true;
 }
 
+// TODO: Add multithreading
 void RayTracer::traceImage(int w, int h, int bs, double thresh)
 {
-	// YOUR CODE HERE
-	// FIXME: Start one or more threads for ray tracing
+	traceSetup(w, h);
+
+    for (size_t x = 0; x < w; x++) 
+        for (size_t y = 0; y < h; tracePixel(y++, x, 0));
+
 }
 
 int RayTracer::aaImage(int samples, double aaThresh)
 {
-	// YOUR CODE HERE
-	// FIXME: Implement Anti-aliasing here
+	sample_map sampleMap;
+	
+	for (size_t x = 0; x < buffer_width; x++) 
+		for (size_t y = 0; y < buffer_width; y++) {
+			setSamples(x, y, samples, sampleMap);
+			glm::dvec3 color = getAvgColor(x, y, samples, sampleMap);
+			setPixel(x, y, color);
+		}
+
+}
+
+void RayTracer::setSamples(int x, int y, int sample_level, sample_map& sampleMap)
+{
+    for (size_t i = 0; i <= sample_level; i++) 
+        for (size_t j = 0; j <= sample_level; j++) {
+            double s_x = (double) x - 0.5 + (double) i / sample_level;
+            double s_y = (double) y - 0.5 + (double) j / sample_level;
+
+            if (sampleMap.find({s_x, s_y}) == sampleMap.end()) {
+                unsigned char pixel[3] = {0, 0, 0};
+                sampleMap[{s_x, s_y}] = trace(s_x / buffer_width, s_y / buffer_height, pixel, 0);
+            }
+        }
+    
+}
+
+glm::dvec3 RayTracer::getAvgColor(int x, int y, int sample_level, sample_map& sampleMap) 
+{
+    glm::dvec3 Color(0.0, 0.0, 0.0);
+
+    for (size_t i = 0; i <= sample_level; i++) 
+        for (size_t j = 0; j <= sample_level; j++) {
+            double s_x = (double) x - 0.5 + (double) i / sample_level;
+            double s_y = (double) y - 0.5 + (double) j / sample_level;
+			Color += sampleMap[{s_x, s_y}] / pow(sample_level + 1, 2);
+        }
+
+    return Color;
 }
 
 bool RayTracer::checkRender()
@@ -229,4 +269,3 @@ void RayTracer::setPixel(int i, int j, glm::dvec3 color)
 	pixel[1] = (int)( 255.0 * color[1]);
 	pixel[2] = (int)( 255.0 * color[2]);
 }
-

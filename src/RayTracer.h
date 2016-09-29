@@ -11,6 +11,11 @@
 #include <thread>
 #include <queue>
 #include <glm/vec3.hpp>
+#include <boost/functional/hash.hpp>
+#include <unordered_map>
+
+using sample_map = std::unordered_map<std::pair<double, double>, glm::dvec3, boost::hash<std::pair<double, double>>>;
+
 
 class Scene;
 class Pixel
@@ -25,6 +30,10 @@ public:
 
 
 class RayTracer {
+private:
+	void setSamples(int x, int y, int sample_lvl, sample_map& sampleMap);
+	glm::dvec3 getAvgColor(int x, int y, int sample_lvl, sample_map& sampleMap);
+
 public:
 	RayTracer();
 	~RayTracer();
