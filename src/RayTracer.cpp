@@ -35,15 +35,15 @@ bool debugMode = false;
 
 glm::dvec3 RayTracer::trace(double x, double y, unsigned char *pixel, unsigned int ctr)
 {
-    // Clear out the ray cache in the scene for debugging purposes,
+	// Clear out the ray cache in the scene for debugging purposes,
   if (TraceUI::m_debug) scene->intersectCache.clear();
 
-    ray r(glm::dvec3(0,0,0), glm::dvec3(0,0,0), pixel, ctr, glm::dvec3(1,1,1), ray::VISIBILITY);
-    scene->getCamera().rayThrough(x,y,r);
-    double dummy;
-    glm::dvec3 ret = traceRay(r, glm::dvec3(1.0,1.0,1.0), traceUI->getDepth() , dummy);
-    ret = glm::clamp(ret, 0.0, 1.0);
-    return ret;
+	ray r(glm::dvec3(0,0,0), glm::dvec3(0,0,0), pixel, ctr, glm::dvec3(1,1,1), ray::VISIBILITY);
+	scene->getCamera().rayThrough(x,y,r);
+	double dummy;
+	glm::dvec3 ret = traceRay(r, glm::dvec3(1.0,1.0,1.0), traceUI->getDepth() , dummy);
+	ret = glm::clamp(ret, 0.0, 1.0);
+	return ret;
 }
 
 glm::dvec3 RayTracer::tracePixel(int i, int j, unsigned int ctr)
@@ -77,7 +77,7 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 		glm::dvec3 refractedColor(0.0, 0.0, 0.0);
 		const Material& m = i.getMaterial();
 		double c = 0.000001;
-	
+
 		if (depth > 0) {
 			glm::dvec3 n = i.N;
 			glm::dvec3 dir = -r.getDirection();
@@ -88,25 +88,25 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 			double rad = 1 - r_c * r_c * (1 - d * d);
 
 			if (m.Refl()) {
-				glm::dvec3 ref = glm::normalize(r.getDirection() - 
+				glm::dvec3 ref = glm::normalize(r.getDirection() -
 									2.0 * i.N * glm::dot(i.N, r.getDirection()));
-				ray reflRay(r.getPosition() + ref * c + i.t * r.getDirection(), ref, 
+				ray reflRay(r.getPosition() + ref * c + i.t * r.getDirection(), ref,
 									r.getPixel(), r.ctr, r.getAtten(), ray::REFLECTION);
 
 				reflectedColor = traceRay(reflRay, thresh, depth - 1, t);
 			}
-				
+
 			if (m.Trans() && rad >= 0) {
 				glm::dvec3 _N = (c < 0) ? -n : n;
 
 				glm::dvec3 T = glm::normalize(-(r_c * d + sqrt(rad) * _N));
-				ray refrRay(r.getPosition() + (i.t + c) * r.getDirection(), T, 
+				ray refrRay(r.getPosition() + (i.t + c) * r.getDirection(), T,
 									r.getPixel(), r.ctr, r.getAtten(), ray::REFRACTION);
 				refractedColor = traceRay(refrRay, thresh, depth - 1, t);
 			}
-			
+
 		}
-		
+
 		colorC = m.shade(scene, r, i) + m.kr(i) * reflectedColor + m.kt(i) * refractedColor;
 
 	} else  // FIXME: Add CubeMap support here.
@@ -146,7 +146,7 @@ bool RayTracer::loadScene( char* fn ) {
 		traceUI->alert( msg );
 		return false;
 	}
-	
+
 	// Strip off filename, leaving only the path:
 	string path( fn );
 	if( path.find_last_of( "\\/" ) == string::npos ) path = ".";
@@ -159,7 +159,7 @@ bool RayTracer::loadScene( char* fn ) {
 		delete scene;
 		scene = 0;
 		scene = parser.parseScene();
-	} 
+	}
 	catch( SyntaxErrorException& pe ) {
 		traceUI->alert( pe.formattedMessage() );
 		return false;
@@ -200,16 +200,16 @@ void RayTracer::traceImage(int w, int h, int bs, double thresh)
 {
 	traceSetup(w, h);
 
-    for (size_t x = 0; x < w; x++) 
-        for (size_t y = 0; y < h; tracePixel(y++, x, 0));
+	for (size_t x = 0; x < w; x++)
+		for (size_t y = 0; y < h; tracePixel(y++, x, 0));
 
 }
 
 int RayTracer::aaImage(int samples, double aaThresh)
 {
 	sample_map sampleMap;
-	
-	for (size_t x = 0; x < buffer_width; x++) 
+
+	for (size_t x = 0; x < buffer_width; x++)
 		for (size_t y = 0; y < buffer_width; y++) {
 			setSamples(x, y, samples, sampleMap);
 			glm::dvec3 color = getAvgColor(x, y, samples, sampleMap);
@@ -220,31 +220,31 @@ int RayTracer::aaImage(int samples, double aaThresh)
 
 void RayTracer::setSamples(int x, int y, int sample_level, sample_map& sampleMap)
 {
-    for (size_t i = 0; i <= sample_level; i++) 
-        for (size_t j = 0; j <= sample_level; j++) {
-            double s_x = (double) x - 0.5 + (double) i / sample_level;
-            double s_y = (double) y - 0.5 + (double) j / sample_level;
+	for (size_t i = 0; i <= sample_level; i++)
+		for (size_t j = 0; j <= sample_level; j++) {
+			double s_x = (double) x - 0.5 + (double) i / sample_level;
+			double s_y = (double) y - 0.5 + (double) j / sample_level;
 
-            if (sampleMap.find({s_x, s_y}) == sampleMap.end()) {
-                unsigned char pixel[3] = {0, 0, 0};
-                sampleMap[{s_x, s_y}] = trace(s_x / buffer_width, s_y / buffer_height, pixel, 0);
-            }
-        }
-    
+			if (sampleMap.find({s_x, s_y}) == sampleMap.end()) {
+				unsigned char pixel[3] = {0, 0, 0};
+				sampleMap[{s_x, s_y}] = trace(s_x / buffer_width, s_y / buffer_height, pixel, 0);
+			}
+		}
+
 }
 
-glm::dvec3 RayTracer::getAvgColor(int x, int y, int sample_level, sample_map& sampleMap) 
+glm::dvec3 RayTracer::getAvgColor(int x, int y, int sample_level, sample_map& sampleMap)
 {
-    glm::dvec3 Color(0.0, 0.0, 0.0);
+	glm::dvec3 Color(0.0, 0.0, 0.0);
 
-    for (size_t i = 0; i <= sample_level; i++) 
-        for (size_t j = 0; j <= sample_level; j++) {
-            double s_x = (double) x - 0.5 + (double) i / sample_level;
-            double s_y = (double) y - 0.5 + (double) j / sample_level;
+	for (size_t i = 0; i <= sample_level; i++)
+		for (size_t j = 0; j <= sample_level; j++) {
+			double s_x = (double) x - 0.5 + (double) i / sample_level;
+			double s_y = (double) y - 0.5 + (double) j / sample_level;
 			Color += sampleMap[{s_x, s_y}] / pow(sample_level + 1, 2);
-        }
+		}
 
-    return Color;
+	return Color;
 }
 
 bool RayTracer::checkRender()
