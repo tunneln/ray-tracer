@@ -12,19 +12,24 @@ cd build
 cmake .. && make -j8
 ```
 
-When finished, the binary called ray will be placed in build/bin/
+When finished, the binary will be called ray and can be found in build/bin/
 
-NOTE: You can change the build directory to any name you like, "build" is simply the
-most commonly used.
+Simply type `bin/ray` to run
+
+Note that you can change the build directory to any name you like,
+"build" is simply the most commonly used
 
 ## Artifact
-Below is an artifact produced by the ray tracer, exemplifying some of the effects possible
 ![example artifact](example-artifact/artifact-output.bmp)
+
+
+Above is an artifact produced by the ray tracer, exemplifying some of its features
 
 ## Dependencies
 
-The starter code depends on the FLTK and OpenGL libraries to run.
-For your own system you may need to install them through the  corresponding package manager or user repo.
+* FLTK
+* OpenGL
+For your own system you may need to install them through the package manager or user repo.
 If you are using OSX, [Homebrew](http://brew.sh/) is recommended.
 
 The default compiler used is g++-5.2.0 (located in /lusr/opt/gcc-5.2.0/bin/g++).
