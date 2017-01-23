@@ -4,7 +4,7 @@
 #include "light.h"
 #include "kdTree.h"
 #include "../ui/TraceUI.h"
-#include <glm/gtx/extented_min_max.hpp>
+#include <glm/gtx/extended_min_max.hpp>
 #include <iostream>
 #include <glm/gtx/io.hpp>
 
@@ -54,7 +54,7 @@ void Geometry::ComputeBoundingBox() {
     // and use those to find a new bounding box.
 
     BoundingBox localBounds = ComputeLocalBoundingBox();
-        
+
     glm::dvec3 min = localBounds.getMin();
     glm::dvec3 max = localBounds.getMax();
 
@@ -84,7 +84,7 @@ void Geometry::ComputeBoundingBox() {
     v = transform->localToGlobalCoords( glm::dvec4(max[0], max[1], max[2], 1) );
     newMax = glm::max(newMax, v);
     newMin = glm::min(newMin, v);
-		
+
     bounds.setMax(glm::dvec3(newMax));
     bounds.setMin(glm::dvec3(newMin));
 }
@@ -99,7 +99,7 @@ Scene::~Scene() {
 }
 
 
-// Get any intersection with an object.  Return information about the 
+// Get any intersection with an object.  Return information about the
 // intersection through the reference parameter.
 bool Scene::intersect(ray& r, isect& i) const {
 	double tmin = 0.0;

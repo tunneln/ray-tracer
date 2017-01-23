@@ -48,7 +48,7 @@ public:
 	{ TraceUI::addRay(ctr); }
 	~ray() {}
 
-	ray& operator =( const ray& other ) 
+	ray& operator =( const ray& other )
 	{
 		p = other.p;
 		d = other.d;
@@ -96,7 +96,7 @@ public:
 	}
 
 	~isect() { delete material; }
-    
+
     isect& operator = (const isect& other) {
         if( this != &other ) {
             obj = other.obj;

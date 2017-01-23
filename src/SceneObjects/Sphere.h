@@ -11,7 +11,7 @@ public:
 		: MaterialSceneObject( scene, mat )
 	{
 	}
-    
+
 	virtual bool intersectLocal(ray& r, isect& i ) const;
 	virtual bool hasBoundingBoxCapability() const { return true; }
 

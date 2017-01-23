@@ -6,6 +6,8 @@ FOREACH(cmake ${cmakes})
 	INCLUDE(${cmake})
 ENDFOREACH(cmake)
 
+INCLUDE_DIRECTORIES(BEFORE SYSTEM "/usr/include")
+
 MESSAGE(STATUS "stdgl: ${stdgl_libraries}")
 
 ADD_SUBDIRECTORY(src)

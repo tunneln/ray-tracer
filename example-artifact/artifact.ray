@@ -1,0 +1,59 @@
+SBT-raytracer 1.0
+
+camera {
+	position = (10, 1, 5);
+	viewdir = (-1, 0, -.3);
+	updir = (0, 0, 1);
+}
+
+point_light {
+	position = (30, -50, 50);
+	color = (1, 1, 1);
+}
+
+translate( 0, 1, 2,
+	scale( 2,
+		sphere {
+			material = {
+				specular = (0.8, 0.8, 0);
+				reflective = (0.55, 0.8, 1);
+				diffuse = (0.55, 0.8, 1);
+				shininess = 256.0;
+			}
+		}
+	)
+)
+
+translate ( 1, 1, 4,
+	rotate( 0.25, 0.5, 2.6, 15.31,
+		cone {
+			capped = false;
+			height = 2;
+			bottom_radius = 0.5;
+			top_radius = 0.2;
+			material = {
+				diffuse = (1, 1, 1);
+				specular = (0.9,0.4,0.0);
+				reflective = (0, 0, 0);
+				shininess = 256.0;
+				ambient = (0.5,0.5,0.5);
+			}
+		}
+	)
+)
+
+translate( 1, 1, -1,
+	rotate( 0.25, 0.5, 2.6, 15.31,
+	scale( 5, 5, 0.1,
+		box {
+			material = {
+				ambient = (0, 0, 0);
+				diffuse = (0.0, 0.0, 0.0);
+				specular = (1.0, 1.0, 1.0);
+				reflective = (0.8, 0.8, 0.8);
+				shininess = 127;
+			}
+		}
+	)
+))
+

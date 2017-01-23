@@ -8,7 +8,7 @@ class CubeMap {
 	int* kernel;
 
 public:
-	CubeMap() : kernel(0) { 
+	CubeMap() : kernel(0) {
 		for (int i = 0; i < 6; i++) tMap[i] = 0;
 	}
 
