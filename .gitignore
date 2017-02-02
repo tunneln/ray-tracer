@@ -33,6 +33,7 @@
 *.un~
 Session.vim
 .netrwhist
+.*.swp
 *~
 
 # CMake
