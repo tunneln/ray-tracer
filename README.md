@@ -37,4 +37,4 @@ Otherwise the default C++11 compiler is used.
 
 ## Acknowledgement
 
-This starter code is modified based on the ray tracing project of CS 384G.
+This code is influenced by the ray tracing project of UT CS 384G
